@@ -1,8 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2893492306157134"
+<title>Your Nerdy Thai Tutor</title>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2893492306157134"
      crossorigin="anonymous"></script>  
 </head>
-  <body>This is a website for Thai Lessons</body>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">About</a>
+    <a href="https://www.picktime.com/365f3605-6d2c-4027-b210-9c524289ee31" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Book a lesson</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Online Practices</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://yournerdythaitutor.github.io/ThaiLessons/">Thai Intonation Practice</a>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Hello Friends!</h1>
+      <br>
+      <p>Welcome to Your Nerdy Thai Tutor page. My name is Charinee, a former software engineer, now a full-time educator. I was born and raised in Bangkok, Thailand, but been living in the USA since 2014. I do go back to Thailand every year, so might I say I am up to date with the new kids' lingos (somewhat). I'm fluent in both English and Thai. I'm mostly just making these practices as a passion project so my husband can practice Thai in a way that I think is most effective for him. I still have a full-time job as a STEM tutor and making these online lessons in my down time, so each lesson might take some time to come out and sometimes are buggy. I apologize if they are buggy. I do be pushing untested codes (probably should not do this but oh well, it's free guys), I'm just making these after hours of doing a lot of math and sometimes giving bonus therapy sessions. If anyone has any request for a feature in the lessons, has any suggestions, report a bug, just want to rant about your day, or interested in booking a private lesson, feel free to email me at <a href="mailto:yournerdythaitutor@gmail.com">yournerdythaitutor@gmail.com</a> or click the <a href="https://www.picktime.com/365f3605-6d2c-4027-b210-9c524289ee31">Book a Lesson</a> button above. If your email looks like spam I will block you immediately so please try to look as human as possible. 
+
+</p>
+    </div>
+  </div>
+
+ 
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">The Thai Language</h1>
+      <p>Honestly, Thai is a very hard language, from the pronunciation, reading and writing system, to the grammar. I would highly suggest learning the alphabet, learn how to read first. It helps with your pronunciation so much, because the romanification of the Thai language is horrendous. It does look overwhelming with 44 consonants, 21 vowels and 5 tones. However, a lot of the consonants make the same sounds, and for a lot of them, their whole purpose is to be fancy for no reason. Therefore, you can condense the alphabet down to just the most frequently used ones to start and you can already read most simple Thai words by knowing only 10 out of 44 consonants. If you are not familar with intonations, then this is going to be a more difficult journey. It is definitely not impossible. In English, people do make use of tones, just not to communicate a different word, but to portray different emotions. In Thai, we just use tones as a sound for different words. </p>
+    </div>
+    
+  </div>
+
+
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Email: yournerdythaitutor@gmail.com</h4>
+    </div>
+
+    
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
 </html>

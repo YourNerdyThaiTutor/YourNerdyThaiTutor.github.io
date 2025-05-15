@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Handwriting Generator</title>
+  <!-- Include the HTML2PDF library from the CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+    
+  </script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/papaparse@5.5.2/papaparse.min.js"></script>
+</head>
+  <body>
+    <div class="navbar">
+      <a href="/index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">The Basics
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <button class="l" onclick="readCSV('Numbers.csv')">Numbers</button>
+          <button class="l" onclick="readCSV('numbers_operations.csv')">Numbers Operations</button>
+          <button class="l" onclick="readCSV('parts of body.csv')">Parts of Body</button>
+        </div>
+      </div>
+    </div>
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
+  <h4>Welcome, please select the topic above to generate your handwriting worksheet.</h4>
+  <div id="buttons"></div>
+  <button onclick="window.print()" id="download">Print The Practices</button><br>
+  <!-- Your HTML content goes here -->
+  <div id="container" class="content">
+     
+  </div>
+      
+      
+
+      <script src="generator.js"></script>
+      <script>
+              function readCSV(name){
+              fetch("/csv/"+name)
+              .then((res) => res.text())
+              .then((text) => {
+                // do something with "text"
+              var con = document.getElementById("container");
+              con.innerHTML = '';
+              var results = Papa.parse(text);
+                
+              var count = 0;  
+                
+              for (let row of results.data) {
+                    if(count%9===0){
+                      var ncon =  document.createElement("DIV");
+                      ncon.id = "content"+row[1];
+                      ncon.classList.add("content");
+                      con.appendChild(ncon);
+                      con = ncon;
+                      
+                    }
+                    if(count%3===0 && count!= 0 && count%9!=0){
+                      con.innerHTML +='<p class="html2pdf__page-break">';
+                    }
+                    else{
+                      con.innerHTML +='<p>';
+                    }
+                    
+                    
+                    con.innerHTML += row;
+                    con.innerHTML += '<br>';
+                    var s = "";
+                    for(let i = 0; i<30;i++){
+                      s+= row[0]+"   ";
+                    }
+                    con.innerHTML += s;
+                    con.innerHTML += '<br>';
+                    con.innerHTML +='</p>';
+                    
+                    count ++;
+                }
+                
+                //document.getElementById("download").onclick = function(){savePDF('content');};
+              
+             })
+            .catch((e) => console.error(e));
+            }
+      function savePDF(name) {
+        var element = document.getElementById(name);
+        var options = {
+          margin: 1,
+          filename: 'my-document.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+
+
+      // Promise-based usage:
+      html2pdf().set(options).from(element).output('dataurlnewwindow').save();
+
+
+      // Old monolithic-style usage:
+      // html2pdf(element, options);
+    }
+        
+        
+        
+      </script>
+  
+         <!-- Your JavaScript code goes here -->
+    
+    </body>
+</html>

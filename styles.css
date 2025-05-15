@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'handwriting';
+  src: url('/kudlaimuesample.ttf');
+}
+@font-face{
+    font-family: 'thic';
+  src: url('/Thiccboiis-Regular.ttf');
+}
+.content{
+    text-align: left;
+    font-family: 'handwriting';
+    
+}
+body{
+    font-size: 30px;
+}

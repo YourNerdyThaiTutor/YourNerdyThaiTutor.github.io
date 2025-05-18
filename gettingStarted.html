@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+#alphabet {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#alphabet td, #alphabet th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+    
+}
+#alphabet a{
+ text-decoration: none;
+}            
+.mid{
+    background-color: #dbf6ff;           
+}
+            
+.high{
+    background-color: #f8dbff;           
+}     
+.paired_low{
+    background-color: #f0f6bd;            
+}
+.single_low{
+    background-color: #f6e8bd;            
+}
+
+
+#alphabet td:hover {background-color: #ddd;}
+
+#alphabet th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+    </head>
+    <body>
+    <div class="navbar">
+      <a href="/index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">The Basics
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="">Alphabets</a>
+          <button class="l" onclick="readCSV('numbers_operations.csv')">Numbers Operations</button>
+          <button class="l" onclick="readCSV('parts of body.csv')">Parts of Body</button>
+        </div>
+      </div>
+    </div>
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+        
+</script>
+    
+    <h3>Getting Started</h3>
+        <p>Let's learn some alphabets.</p>
+        
+<table id="alphabet">
+<tr>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ก">ก</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ข">ข</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฃ">ฃ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ค">ค</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฅ">ฅ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฆ">ฆ</a></td>
+  </tr>
+  <tr>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ง">ง</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=จ">จ</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฉ">ฉ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ช">ช</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ซ">ซ</a></td>  
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฌ">ฌ</a></td>
+  </tr>
+  <tr>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ญ">ญ</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฎ">ฎ</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฏ">ฏ</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฐ">ฐ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฑ">ฑ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฒ">ฒ</a></td>
+  </tr>
+  <tr>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ณ">ณ</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ด">ด</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ต">ต</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ถ">ถ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ท">ท</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ธ">ธ</a></td>
+  </tr>
+  <tr>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=น">น</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=บ">บ</a></td>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ป">ป</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ผ">ผ</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฝ">ฝ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=พ">พ</a></td>
+  </tr>
+  <tr>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฟ">ฟ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ภ">ภ</a></td>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ม">ม</a></td>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ย">ย</a></td>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ร">ร</a></td>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ล">ล</a></td>
+  </tr>
+  <tr>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ว">ว</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ศ">ศ</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ษ">ษ</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ส">ส</a></td>
+    <td class="high"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ห">ห</a></td>
+    <td class="single_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฬ">ฬ</a></td>
+  </tr>
+  <tr>
+    <td class="mid"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=อ">อ</a></td>
+    <td class="paired_low"><a target="_blank" rel="noopener noreferrer" href="AlphabetWriting.html?product=ฮ">ฮ</a></td>
+    
+  </tr>
+  
+  
+</table>
+        
+
+    </body>
+</html>

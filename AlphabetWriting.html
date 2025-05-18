@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            div {
+  display: flex;
+  justify-content: center;
+}
+        </style>
+    </head>
+    <body>
+        <a href="gettingStarted.html">Back</a>
+        <div><img id="HowToWrite" src="Letters/ก.gif" width="200" height="200"></div>
+        <h5 class="header" id="Letter"></h5>
+        <button onclick="window.print()" id="download">Print The Practices</button>
+        <p class="content" id="practice"></p>
+        <script>
+            var descriptions = {
+                "ก":"G",
+                "ข":"K",               
+                "ฃ":"K", 
+                "ค":"K", 
+                "ฅ":"K",
+                "ฆ":"K",
+                "ง":"NG",
+                "จ":"J",
+                "ฉ":"CH",
+                "ช":"CH",
+                "ซ":"S",
+                "ฌ":"CH",
+                "ญ":"Y",
+                "ฎ":"D",
+                "ฏ":"TH",
+                "ฐ":"T",
+                "ฑ":"T",
+                "ฒ":"T",
+                "ณ":"N",
+                "ด":"D",
+                "ต":"TH",
+                "ถ":"T",
+                "ท":"T",
+                "ธ":"T",
+                "น":"N",
+                "บ":"B",
+                "ป":"BP",
+                "ผ":"P",
+                "ฝ":"F",
+                "พ":"P",
+                "ฟ":"F",
+                "ภ":"P",
+                "ม":"M",
+                "ย":"Y",
+                "ร":"R",
+                "ล":"L",
+                "ว":"W",
+                "ศ":"S",
+                "ษ":"S",
+                "ส":"S",
+                "ห":"H",
+                "ฬ":"L",
+                "อ":"A",
+                "ฮ":"H"
+            }
+            function findCurrentLetter(){
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const product = urlParams.get('product')
+                return product;
+            }
+            window.onload = function ShowPage(){
+                var header = document.getElementById("Letter");
+                var curr = findCurrentLetter();
+                document.getElementById("HowToWrite").src = "Letters/"+curr+".gif";
+                header.innerHTML = curr + "   sounds like :\""+descriptions[curr]+"\" in English";
+                var practice = document.getElementById("practice");
+                for(let i=0;i<100;i++){
+                    practice.innerHTML += curr+"  ";
+                }
+            }
+            
+            
+        </script>
+        
+    </body>
+</html>

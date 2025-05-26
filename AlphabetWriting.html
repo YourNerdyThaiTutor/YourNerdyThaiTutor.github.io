@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Title</title>
+        <title>The Alphabets</title>
         <link rel="stylesheet" href="styles.css">
         <style>
             div {
@@ -63,6 +63,8 @@
                 "ฬ":"L",
                 "อ":"A",
                 "ฮ":"H"
+                
+                
             }
             function findCurrentLetter(){
                 const queryString = window.location.search;
@@ -74,7 +76,13 @@
                 var header = document.getElementById("Letter");
                 var curr = findCurrentLetter();
                 document.getElementById("HowToWrite").src = "Letters/"+curr+".gif";
-                header.innerHTML = curr + "   sounds like :\""+descriptions[curr]+"\" in English";
+                if(descriptions[curr]!=null){
+                    header.innerHTML = curr + "   sounds like :\""+descriptions[curr]+"\" in English";
+                }
+                else{
+                    header.innerHTML = curr;
+                }
+                
                 var practice = document.getElementById("practice");
                 for(let i=0;i<100;i++){
                     practice.innerHTML += curr+"  ";

@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <title>Title</title>
-    <meta charset="utf-8" />
-    <script src="https://unpkg.com/pdf-lib"></script>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PDF Invoice</title>
+</head>
+<body>
+    <button id="generate-invoice">Generate Invoice PDF</button>
 
-  <body>
-    <iframe title="pdf" id="pdf" style="width: 100%; height: 100%;"></iframe>
-  
+    <script src="<https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js>"></script>
+    <script src="<https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js>"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const { jsPDF } = window.jspdf;
 
-  <script>
-    window.onload= function createPdf() {
-      var pdfDoc = PDFLib.PDFDocument.create();
-      var page = pdfDoc.addPage([350, 400]);
-      page.moveTo(110, 200);
-      page.drawText('Hello World!');
-      var pdfDataUri = pdfDoc.saveAsBase64({ dataUri: true });
-      document.getElementById('pdf').src = pdfDataUri;
-    }
-  </script>
-    </body>
+            document.getElementById('generate-invoice').addEventListener('click', function() {
+                const doc = new jsPDF();
+
+                // Invoice Header
+                doc.setFontSize(20);
+                doc.text("INVOICE", 90, 20);
+
+                
+                // Company Information
+                doc.setFontSize(12);
+                doc.text("APITemplate.io", 20, 30);
+                doc.text("1234 Main Street", 20, 35);
+                doc.text("City, State, Zip", 20, 40);
+                doc.text("Phone: (555) 555-5555", 20, 45);
+                doc.text("Email: hello@apitemplate.io", 20, 50);
+
+                // Client Information
+                doc.text("Bill To:", 20, 60);
+                doc.text("Client Name", 20, 65);
+                doc.text("Client Address", 20, 70);
+                doc.text("City, State, Zip", 20, 75);
+                doc.text("Phone: (555) 555-5555", 20, 80);
+                doc.text("Email: client@example.com", 20, 85);
+
+                // Invoice Table
+                doc.autoTable({
+                    startY: 90,
+                    head: [['Description', 'Quantity', 'Unit Price', 'Total']],
+                    body: [
+                        ['Item 1', '2', '$10.00', '$20.00'],
+                        ['Item 2', '1', '$15.00', '$15.00'],
+                        ['Item 3', '4', '$7.50', '$30.00']
+                    ],
+                });
+
+                // Invoice Total
+                let finalY = doc.previousAutoTable.finalY; // The y position after the table
+                doc.setFontSize(12);
+                doc.text('Subtotal: $65.00', 150, finalY + 10);
+                doc.text('Tax (10%): $6.50', 150, finalY + 20);
+                doc.text('Total: $71.50', 150, finalY + 30);
+
+                // Footer
+                doc.setFontSize(10);
+                doc.text('Thank you for your business!', 20, 280);
+                doc.text('Please make the payment by the due date.', 20, 285);
+
+                // Save the PDF
+                doc.save('invoice.pdf');
+            });
+        });
+    </script>
+</body>
 </html>
+

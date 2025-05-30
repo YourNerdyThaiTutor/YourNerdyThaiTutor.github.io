@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ56JZ1LM4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BQ56JZ1LM4');
+</script>
         <meta charset="UTF-8" />
         <title>The Alphabets</title>
         <link rel="stylesheet" href="styles.css">
@@ -9,12 +18,23 @@
   display: flex;
   justify-content: center;
 }
+            .label{
+                font-size: 15pt;
+            }
         </style>
     </head>
     <body>
         <a href="gettingStarted.html">Back</a>
         <div><img id="HowToWrite" src="Letters/ก.gif" width="200" height="200"></div>
         <h5 class="header" id="Letter"></h5>
+        <div>
+            <audio controls id="audio">
+                <source id="audioSource" src="./Alphabet_audios/%E0%B8%81.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+        </audio>
+            </div>
+        <div class="label">name and pronunciation of the letter</div>
+        
         <button onclick="window.print()" id="download">Print The Practices</button>
         <p class="content" id="practice"></p>
         <script>
@@ -87,6 +107,16 @@
                 for(let i=0;i<100;i++){
                     practice.innerHTML += curr+"  ";
                 }
+                loadAudio(curr);
+            }
+            function loadAudio(curr){
+                 var src = "./Alphabet_audios/"+curr+".mp3";
+                var audio = document.getElementById('audio');
+
+                var source = document.getElementById('audioSource');
+                source.src = src;
+                audio.load();
+                audio.play();
             }
             
             

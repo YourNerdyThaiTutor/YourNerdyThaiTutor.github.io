@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ56JZ1LM4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BQ56JZ1LM4');
+</script>
+        <meta charset="UTF-8" />
+        <title>The Keyboard</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+.alphabet {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+    font-size:14pt;
+    white-space: nowrap;
+}
+
+.alphabet td, #alphabet th {
+  border: 1px solid #ddd;
+  padding: 3px;
+  text-align: center;
+  word-wrap: break-word;
+
+    
+}
+.alphabet a{
+ text-decoration: none;
+}            
+    
+.selected{
+    background-color: #f0f6bd;            
+}
+
+.special_key{
+    font-size: 3vw;
+}
+
+.alphabet td:hover {background-color: #ddd;}
+
+.alphabet th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2893492306157134"      crossorigin="anonymous"></script>  </head>
+    <body>
+    <div class="navbar">
+      <a href="/index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">All Tables
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="./TheAlphabets.html">Alphabets</a>
+          <a href="./TheVowels.html">Vowels</a>
+            <a href="./VowelTransformations.html">Vowel Transformation</a>
+          <a href="https://yournerdythaitutor.github.io/ThaiLessons/TonesExplanation.html">Tones Table</a>
+          <a href="./ThaiKeyboard.html">Thai Keyboard</a>
+        </div>
+      </div>
+    </div>
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }<td colspan="2" id="">
+}
+        
+</script>
+
+
+<table class="alphabet">
+    <tr>
+        <th>classifier</th>
+        <th>use</th>
+        <th>example</th>
+    </tr>
+    <tr>
+        <td>อัน</td>
+        <td>piece (most generic)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>คน</td>
+        <td>people</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ตัว</td>
+        <td>animals, clothings, furniture</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ลูก</td>
+        <td>balls, fruits</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ชิ้น</td>
+        <td>pieces that are separated from a bigger thing</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ถ้วย</td>
+        <td>bowl</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ใบ</td>
+        <td>leaf, cups, pillow</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>แผ่น</td>
+        <td>thin things, like paper</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ผืน</td>
+        <td>fabric sheet</td>
+        <td></td>
+    </tr>
+
+    
+</table>
+        <script>
+            function findCurrentLetter(){
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const product = urlParams.get('product')
+                return product;
+            }
+            window.onload = function highlight(){
+                var product = findCurrentLetter();
+                if(product){
+                    var keys = product.split(",");
+                
+                    for (let i = 0; i<keys.length;i++){
+                        document.getElementById(keys[i]).classList.add("selected");
+                    }
+                }
+                
+                
+            }
+            
+        </script>
+
+    </body>
+</html>

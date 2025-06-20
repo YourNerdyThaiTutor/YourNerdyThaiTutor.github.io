@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ56JZ1LM4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BQ56JZ1LM4');
+</script>
+        <meta charset="UTF-8" />
+        <title>Word Break Down tool</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            div {
+              display: flex;
+              justify-content: center;
+            }
+            .label{
+                font-size: 15pt;
+            }
+            .content{
+                padding-left: 20pt;
+                letter-spacing: 5pt;
+            }
+        </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2893492306157134"      crossorigin="anonymous"></script>  </head>
+    <body>
+        <a href="gettingStarted.html">Back</a>
+        
+        <h5 class="header" id="Letter"></h5>
+        <div>
+            <audio controls id="audio">
+                <source id="audioSource" src="./Alphabet_audios/%E0%B8%81.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+        </audio>
+            </div>
+        <div class="label">name and pronunciation of the letter</div>
+        
+        <p class="content" id="practice"></p>
+        <script>
+            var consonants = [ "ก","ข","ฃ","ค","ฅ","ฆ","ง","จ","ฉ","ช","ซ","ฌ","ญ","ฎ","ฏ","ฐ","ฑ","ฒ","ณ","ด","ต","ถ","ท","ธ","น","บ","ป","ผ","ฝ","พ","ฟ","ภ","ม","ย","ร","ล","ว","ศ","ษ","ส","ห","ฬ","อ","ฮ"   
+            ];
+            var tones =["่","้","๊","๋"];
+            var vowels =["ะ","า","ุ","ู","ิ","ี","ึ","ื","เ","แ","โ","ำ","ไ","ั"]; 
+            var endings ={
+    "ก":["ก","ข","ค","ฆ"],
+    "ด":["จ","ด","ต","ถ","ท","ธ","ฎ","ฏ","ฑ","ฒ","ช","ซ","ศ","ษ","ส"],
+    "บ":["บ","ป","พ","ภ","ฟ"],
+    "น":["น","ณ","ญ","ร","ล","ฬ"]    
+};
+            
+            class spelling {
+  constructor(_consonant, _vowel, _ending, _tone) {
+    this.consonant = _consonant;
+    this.vowel = _vowel;
+    this.ending = _ending;
+    this.tone = _tone;
+  }
+}
+            var words = [];
+            var starting_index = 0;
+            var descriptions = {
+                "ก":"G",
+                "ข":"K",               
+                "ฃ":"K", 
+                "ค":"K", 
+                "ฅ":"K",
+                "ฆ":"K",
+                "ง":"NG",
+                "จ":"J",
+                "ฉ":"CH",
+                "ช":"CH",
+                "ซ":"S",
+                "ฌ":"CH",
+                "ญ":"Y",
+                "ฎ":"D",
+                "ฏ":"TH",
+                "ฐ":"T",
+                "ฑ":"T",
+                "ฒ":"T",
+                "ณ":"N",
+                "ด":"D",
+                "ต":"TH",
+                "ถ":"T",
+                "ท":"T",
+                "ธ":"T",
+                "น":"N",
+                "บ":"B",
+                "ป":"BP",
+                "ผ":"P",
+                "ฝ":"F",
+                "พ":"P",
+                "ฟ":"F",
+                "ภ":"P",
+                "ม":"M",
+                "ย":"Y",
+                "ร":"R",
+                "ล":"L",
+                "ว":"W",
+                "ศ":"S",
+                "ษ":"S",
+                "ส":"S",
+                "ห":"H",
+                "ฬ":"L",
+                "อ":"A",
+                "ฮ":"H"     
+                
+            };
+            function findCurrentWord(){
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const product = urlParams.get('product')
+                return product;
+            }
+            
+            function groupConsonants(){
+                
+            }
+            
+            window.onload = function ShowPage(){
+                var header = document.getElementById("Letter");
+                //var word = findCurrentWord();
+                var word = "กรั้ง";
+                var vowel = "";
+                var consonant = "";
+                var ending = "";
+                var tone = "";
+                for(let i = 0; i<word.length; i++){
+                    var l = word[i];
+                    if(vowels.includes(l) && i >= starting_index){
+                        if(l==="ะ"){
+                            consonant = word.substring(starting_index, i);
+                            vowel = "ะ";
+                            ending = "";
+                            //document.body.innerHTML+= consonant+" "+vowel;
+                            starting_index = i+1;
+                        }
+                        else if(l==="ั"){
+                            consonant = word.substring(starting_index, i);
+                            if(word[i+1] ==="ว"){
+                                vowel = "-ัว";
+                                starting_index = i+2;
+                            }
+                            else if(word[i+2] ==="ว" && tones.includes(word[i+1])){
+                                vowel = "-ัว";
+                                tone = word[i+1];
+                                starting_index = i+3;
+                            }
+                            else{
+                                vowel = "ะ";
+                                if(tones.includes(word[i+1])){
+                                    tone = word[i+1];
+                                    ending = word[i+2];
+                                }
+                                else{
+                                    ending = word[i+1];
+                                }
+                            }
+                            
+                        }
+                    else if(i===starting_index){
+                        if(l==="เ"){
+                            try{
+                                if(word[i+2]==="ี"){
+                                    if(word[i+3]==="ย"){
+                                        try{
+                                            if(word[i+4]==="ะ"){
+                                                vowel = "เ-ียะ";
+                                            }
+                                            else{
+                                                vowel = "เ-ีย";
+                                            }
+                                        }
+                                        catch{
+                                            console.log("index does not exist");
+                                            vowel = "เ-ีย";
+                                        }
+                                        
+                                        
+                                    }
+                                    else if(word[i+4]==="ย"){
+                                        vowel = "เ-ีย";
+                                    }
+                                }
+                                else if(word[i+3]==="ี"){
+                                    if(word[i+4]==="ย"){
+                                        
+                                        vowel = "เ-ีย";
+                                    }
+                                }
+                            }
+                            catch{
+                                console.log("index does not exist");
+                            }
+                        }
+                    }
+                    const w = new spelling(consonant,vowel,ending,tone);        
+                    words.push(w);
+                    
+                    }
+                }
+                
+                
+                // showing spelling for each word
+               for(let k = 0;k<words.length;k++){
+                    document.body.innerHTML+= "consonant: "+ words[k].consonant+" vowel:  "+words[k].vowel+" ending: "+ words[k].ending+" tone: "+words[k].tone;
+                }
+                
+                if(descriptions[curr]!=null){
+                    header.innerHTML = curr + "   sounds like :\""+descriptions[curr]+"\" in English";
+                }
+                else{
+                    header.innerHTML = curr;
+                }
+                
+                var practice = document.getElementById("practice");
+                for(let i=0;i<100;i++){
+                    practice.innerHTML += curr+"   ";
+                }
+                //loadAudio(curr);
+            }
+            function loadAudio(curr){
+                 var src = "./Alphabet_audios/"+curr+".mp3";
+                var audio = document.getElementById('audio');
+
+                var source = document.getElementById('audioSource');
+                source.src = src;
+                audio.load();
+                audio.play();
+            }
+            
+            
+        </script>
+        <audio id="15">
+                                                        <source src="./audios/directions/%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99.mp3" type="audio/mp3">
+                                                        Your browser does not support the audio tag.
+                                                    </audio><button onclick='playSound("15")'>play</button>
+    </body>
+</html>
